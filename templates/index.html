@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatole</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="Anatole">
+    <meta name="keywords" content="Anatole">
+    <meta name="description" content="Anatole">
+    <link rel="alternate" type="application/rss+xml" title="atom 1.0" href="/feed">
+  <link rel="stylesheet" href="/assets/index.c7f7e1b6.css" th:href="@{/assets/index.c7f7e1b6.css}"></head>
+
+  <body>
+    <div class="sidebar animated fadeInDown">
+  <div class="logo-title">
+    <div class="title">
+      <img alt="Logo" class="inline-block" src="https://ryanc.cc/avatar" style="width:127px;border-radius:50%">
+      <h3 class="!mt-3 !mb-0">
+        <a href="/" title="Anatole">Anatole</a>
+      </h3>
+      <div class="description mt-2">
+        <p class="description-text">CVM Developer</p>
+      </div>
+    </div>
+  </div>
+  <ul class="social-links mt-1">
+  <li>
+    <a target="_blank" href="#" title="RSS">
+      <i class="iconify w-4 h-4" data-icon="mdi:rss"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="https://twitter.com/" title="Twitter">
+      <i class="iconify w-4 h-4" data-icon="mdi:twitter"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="https://www.facebook.com/" title="Facebook">
+      <i class="iconify w-4 h-4" data-icon="mdi:facebook"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="https://www.instagram.com/" title="Instagram">
+      <i class="iconify w-4 h-4" data-icon="mdi:instagram"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="https://dribbble.com/" title="Dribbble">
+      <i class="iconify w-4 h-4" data-icon="mdi:dribbble"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="https://weibo.com/" title="Sina Weibo">
+      <i class="iconify w-4 h-4" data-icon="mdi:sina-weibo"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="#" title="QQ">
+      <i class="iconify w-4 h-4" data-icon="mdi:qqchat"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="https://t.me/" title="Telegram">
+      <i class="iconify w-4 h-4" data-icon="mdi:telegram"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="mailto:#" title="Email">
+      <i class="iconify w-4 h-4" data-icon="mdi:email"></i>
+    </a>
+  </li>
+
+  <li>
+    <a target="_blank" href="https://github.com/" title="GitHub">
+      <i class="iconify w-4 h-4" data-icon="mdi:github"></i>
+    </a>
+  </li>
+</ul>
+  <div class="footer">
+    <a target="_blank" href="#"> </a><a href="https://www.caicai.me">Designed by CaiCai</a>
+    <div class="by_halo">
+      <a href="https://halo.run" target="_blank">Proudly published with Halo</a>
+    </div>
+    <div class="footer_text"></div>
+  </div>
+</div>
+    <div class="main">
+      <div class="page-top animated fadeInDown">
+  <div id="nav" class="nav flex overflow-x-auto flex-1 flex-nowrap whitespace-nowrap ml-[30px] mr-4 items-center text-sm gap-6 h-full">
+    <div th:each="menuItem : ${menuFinder.listAllMenuItem()}" class="nav-item inline-flex items-center h-full text-black/70 hover:text-[#4786D6] relative transition-all">
+      <a th:href="${menuItem.href}" th:text="${menuItem.displayName}"></a>
+    </div>
+  </div>
+  <div class="information gap-4">
+    <div x-on:click="postSearchVisible = true" class="rounded-full w-[32px] h-[32px] flex justify-center items-center border hover:bg-gray-600 text-gray-500 hover:text-white transition-all cursor-pointer">
+      <i class="iconify w-4 h-4" data-icon="mdi:text-box-search"></i>
+    </div>
+    <div class="avatar">
+      <img src="https://ryanc.cc/avatar" alt="Logo">
+    </div>
+  </div>
+</div>
+      <div class="content">
+        <div x-data="posts">
+    <div th:each="post : ${postFinder.list(1, 10)}" class="post animated fadeInDown">
+  <div class="post-title">
+    <h3 class="font-medium">
+      <a th:href="${post.permalink}" th:text="${post.title}"></a>
+    </h3>
+  </div>
+  <div class="post-content text-black/50 text-sm">
+    <p class="py-2.5" th:text="${post.excerpt}"></p>
+  </div>
+  <div class="post-info pb-[30px] border-b border-b-[#f2f2f2]">
+    <div class="meta">
+      <div class="info">
+        <i class="iconify w-3 h-3" data-icon="mdi:calendar-month-outline"></i>
+        <span th:text="${post.publishTime}"></span>
+        <i class="iconify w-3 h-3" data-icon="mdi:eye"></i>
+        <span>0</span>
+        <i class="iconify w-3 h-3" data-icon="mdi:comment-outline"></i>
+        <a th:href="${post.permalink}">0</a>
+        <div class="inline-block hover:text-red-700 cursor-pointer">
+          <i class="iconify w-3 h-3" data-icon="mdi:heart"></i>
+          <i class="iconify w-3 h-3" data-icon="mdi:heart-outline"></i>
+          <span data-post-id-likes="">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+      </div>
+    </div>
+  </body></html>

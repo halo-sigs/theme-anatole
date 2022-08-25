@@ -1,0 +1,17 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+spec:
+  displayName: Anatole
+  author:
+    name: Caicai && Halo OSS Organization
+    website: "https://github.com/halo-sigs/theme-anatole"
+  description: Halo 2.0 Theme base on Thymeleaf
+  logo: "https://avatars1.githubusercontent.com/u/1811819?s=460&v=4"
+  website: "https://github.com/halo-sigs/theme-anatole"
+  repo: "https://github.com/halo-sigs/theme-anatole"
+  settingName: "theme-anatole-setting"
+  configMapName: "theme-anatole-configMap"
+  version: "1.0"
+  require: "*"
+metadata:
+  name: theme-anatole

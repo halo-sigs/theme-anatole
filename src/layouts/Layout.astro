@@ -1,0 +1,38 @@
+---
+import "../styles/style.scss";
+import "@purge-icons/generated"
+import Sidebar from "../components/sidebar.astro";
+import PageTop from "../components/page-top.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anatole</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="author" content="Anatole" />
+    <meta name="keywords" content="Anatole" />
+    <meta name="description" content="Anatole" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="atom 1.0"
+      href="/feed"
+    />
+  </head>
+
+  <body>
+    <Sidebar />
+    <div class="main">
+      <PageTop />
+      <div class="content">
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>

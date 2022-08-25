@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import vue from "@astrojs/vue";
 import tailwind from "@astrojs/tailwind";
 import astroHaloThemeIntegration from "@halo-dev/astro-halo-theme-integration";
-import PurgeIcons from "vite-plugin-purge-icons";
+import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +12,7 @@ export default defineConfig({
     format: "file",
   },
   vite: {
-    plugins: [PurgeIcons()],
+    plugins: [Icons({ compiler: "vue3" })],
   },
   server: {
     port: 4000,

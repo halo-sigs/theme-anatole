@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "prerelease": "pnpm build && node scripts/release.cjs",
+    "release": "release-it",
     "preview": "astro preview",
     "prettier": "prettier --write './src/**/*.{vue,js,ts,css,scss,json,yml,yaml,html,astro}'",
     "lint": "eslint ./src --ext .vue,.js,.cjs,.ts,.astro --ignore-path .gitignore",

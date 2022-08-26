@@ -7,6 +7,8 @@ const zip = new AdmZip();
 
 const entries = ["package.json", "theme.yaml", "templates"];
 
+const folderName = `theme-anatole-${version}`;
+
 async function main() {
   for (const key in entries) {
     const entry = entries[key];
@@ -15,13 +17,15 @@ async function main() {
     const entryStat = fs.statSync(realPath);
 
     if (entryStat.isFile()) {
-      zip.addLocalFile(realPath);
+      zip.addLocalFile(realPath, folderName);
     } else {
-      await zip.addLocalFolderPromise(realPath, { zipPath: entry });
+      await zip.addLocalFolderPromise(realPath, {
+        zipPath: folderName + "/" + entry,
+      });
     }
   }
 
-  zip.writeZip(path.resolve(__dirname, `../dist/theme-anatole-${version}.zip`));
+  zip.writeZip(path.resolve(__dirname, `../dist/${folderName}.zip`));
 }
 
 main().catch((err) => {

@@ -28,4 +28,8 @@ module.exports = {
     "vue/multi-word-component-names": 0,
     "@typescript-eslint/ban-ts-comment": 0,
   },
+  globals: {
+    th: true,
+    block: true,
+  },
 };

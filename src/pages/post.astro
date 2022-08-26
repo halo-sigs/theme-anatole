@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeading from "../components/page-heading.astro";
+import IconMdiCalendarMonthOutline from "~icons/mdi/calendar-month-outline";
+import IconMdiEye from "~icons/mdi/eye";
+import IconMdiCommentOutline from "~icons/mdi/comment-outline";
+import IconMdiHeart from "~icons/mdi/heart";
+import IconMdiFolderOutline from "~icons/mdi/folder-outline";
+import IconMdiTag from "~icons/mdi/tag";
+---
+
+<Layout>
+  <th:block slot="head">
+    <th:block th:include="components/highlightjs/index :: import"></th:block>
+    <th:block th:include="components/katex/index :: import"></th:block>
+    <th:block th:include="components/lightgallery/index :: import"></th:block>
+  </th:block>
+  <th:block slot="footer">
+    <th:block th:include="components/highlightjs/index :: script"></th:block>
+    <th:block th:include="components/lightgallery/index :: script"></th:block>
+  </th:block>
+  <th:block th:with="post=${postFinder.getByName(name)}">
+    <PageHeading>
+      <th:block slot="title" th:text="${post.title}"> </th:block>
+      <div class="post-info mt-2">
+        <div class="meta">
+          <div class="info">
+            <IconMdiCalendarMonthOutline class="w-3 h-3" />
+            <span th:text="${post.publishTime}"></span>
+            <IconMdiEye class="w-3 h-3" />
+            <span>0</span>
+            <IconMdiCommentOutline class="w-3 h-3" />
+            <a th:href="@{${post.permalink}}">0</a>
+            <div
+              class="inline-block hover:text-red-700 cursor-pointer"
+              x-bind:class="{'text-red-700': liked(${post.id?c})}"
+              x-on:click="handleLike(${post.id?c})"
+            >
+              <IconMdiHeart class="w-3 h-3" />
+              <!-- <i class="iconify w-3 h-3" data-icon="mdi:heart-outline"></i> -->
+              <span data-post-id-likes="${post.id?c}">0</span>
+            </div>
+            <th:block
+              th:if="${not #lists.isEmpty(post.categories)}"
+              class="inline-block"
+            >
+              <IconMdiFolderOutline class="w-3 h-3" />
+              <a
+                th:each="category : ${post.categories}"
+                th:href="@{${category.permalink}}"
+                th:title="${category.displayName}"
+                th:text="${category.displayName}"
+              >
+              </a>
+            </th:block>
+            <th:block
+              th:if="${not #lists.isEmpty(post.tags)}"
+              class="inline-block"
+            >
+              <IconMdiTag class="w-3 h-3" />
+              <a
+                th:each="tag : ${post.tags}"
+                th:href="@{${tag.permalink}}"
+                th:title="${tag.displayName}"
+                th:text="${tag.displayName}"
+              >
+              </a>
+            </th:block>
+          </div>
+        </div>
+      </div>
+    </PageHeading>
+    <div class="post-page">
+      <div class="post animated fadeInDown">
+        <div
+          th:utext="${postFinder.content(name).content}"
+          id="post-content"
+          class="post-content markdown-body"
+        >
+        </div>
+      </div>
+      <div class="pagination flex justify-between items-center"></div>
+      <div id="comment_widget" style="margin: 30px;"></div>
+    </div>
+  </th:block>
+</Layout>

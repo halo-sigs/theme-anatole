@@ -8,7 +8,7 @@ import IconMdiTag from "~icons/mdi/tag";
 ---
 
 <div
-  th:each="post : ${postFinder.list(1, 10)}"
+  th:each="post : ${postFinder.list(1, 10).items}"
   class="post animated fadeInDown"
 >
   <div class="post-title">
@@ -33,7 +33,7 @@ import IconMdiTag from "~icons/mdi/tag";
           <!-- <i class="iconify w-3 h-3" data-icon="mdi:heart-outline"></i> -->
           <span data-post-id-likes="">0</span>
         </div>
-        <div
+        <th:block
           th:if="${not #lists.isEmpty(post.categories)}"
           class="inline-block"
         >
@@ -45,8 +45,8 @@ import IconMdiTag from "~icons/mdi/tag";
             th:text="${category.displayName}"
           >
           </a>
-        </div>
-        <div th:if="${not #lists.isEmpty(post.tags)}" class="inline-block">
+        </th:block>
+        <th:block th:if="${not #lists.isEmpty(post.tags)}" class="inline-block">
           <IconMdiTag class="w-3 h-3" />
           <a
             th:each="tag : ${post.tags}"
@@ -55,7 +55,7 @@ import IconMdiTag from "~icons/mdi/tag";
             th:text="${tag.displayName}"
           >
           </a>
-        </div>
+        </th:block>
       </div>
     </div>
   </div>

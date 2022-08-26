@@ -24,6 +24,7 @@ import PageTop from "../components/page-top.astro";
       title="atom 1.0"
       href="/feed"
     />
+    <slot name="head" />
   </head>
 
   <body>
@@ -34,5 +35,7 @@ import PageTop from "../components/page-top.astro";
         <slot />
       </div>
     </div>
+
+    <slot name="footer" />
   </body>
 </html>

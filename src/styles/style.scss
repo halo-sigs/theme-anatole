@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 body {
-  font-family: 'PingHei', 'PingFang SC', Helvetica Neue, 'Work Sans', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+  font-family: "PingHei", "PingFang SC", Helvetica Neue, "Work Sans",
+    "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
   width: 100%;
   margin: 0 auto 30px auto;
   background-color: #fff;
@@ -77,7 +78,7 @@ svg {
     .nav-item {
       &.current {
         @apply font-medium;
-        border-bottom: 1px solid #5A5A5A;
+        border-bottom: 1px solid #5a5a5a;
       }
     }
   }
@@ -159,14 +160,14 @@ svg {
       color: #565654;
 
       &:hover {
-        color: #4786D6;
+        color: #4786d6;
       }
     }
   }
 }
 
 .post {
-  background-color: #FFF;
+  background-color: #fff;
   margin: 30px;
 
   .post-title {
@@ -211,7 +212,7 @@ svg {
       padding-right: 10px;
 
       &:hover {
-        color: #4786D6;
+        color: #4786d6;
       }
     }
 
@@ -248,10 +249,10 @@ svg {
   padding-bottom: 20px;
 
   a {
-    color: #A6A6A6;
+    color: #a6a6a6;
 
     &:hover {
-      color: #4786D6;
+      color: #4786d6;
     }
   }
 }
@@ -285,14 +286,14 @@ svg {
 
       .post-time {
         float: right;
-        color: #C5C5C5;
+        color: #c5c5c5;
       }
 
       a {
-        color: #8F8F8F;
+        color: #8f8f8f;
 
         &:hover {
-          color: #4786D6;
+          color: #4786d6;
         }
       }
     }
@@ -387,11 +388,17 @@ a.btn {
 }
 
 .markdown-body {
-  ul, ol {
+  ul,
+  ol {
     list-style: inherit;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     border: none !important;
   }
 

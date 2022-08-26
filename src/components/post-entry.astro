@@ -13,7 +13,7 @@ import IconMdiTag from "~icons/mdi/tag";
 >
   <div class="post-title">
     <h3 class="font-medium">
-      <a th:href="${post.permalink}" th:text="${post.title}"></a>
+      <a th:href="@{post.permalink}" th:text="${post.title}"></a>
     </h3>
   </div>
   <div class="post-content text-black/50 text-sm">
@@ -27,7 +27,7 @@ import IconMdiTag from "~icons/mdi/tag";
         <IconMdiEye class="w-3 h-3" />
         <span>0</span>
         <IconMdiCommentOutline class="w-3 h-3" />
-        <a th:href="${post.permalink}">0</a>
+        <a th:href="@{post.permalink}">0</a>
         <div class="inline-block hover:text-red-700 cursor-pointer">
           <IconMdiHeart class="w-3 h-3" />
           <!-- <i class="iconify w-3 h-3" data-icon="mdi:heart-outline"></i> -->
@@ -40,9 +40,10 @@ import IconMdiTag from "~icons/mdi/tag";
           <IconMdiFolderOutline class="w-3 h-3" />
           <a
             th:each="categoryName : ${post.categories}"
-            th:href="${categoryFinder.getByName(categoryName).permalink}"
-            th:title="${categoryFinder.getByName(categoryName).displayName}"
-            th:text="${categoryFinder.getByName(categoryName).displayName}"
+            th:with="category=${categoryFinder.getByName(categoryName)}"
+            th:href="${category.permalink}"
+            th:title="${category.displayName}"
+            th:text="${category.displayName}"
           >
           </a>
         </div>
@@ -50,9 +51,10 @@ import IconMdiTag from "~icons/mdi/tag";
           <IconMdiTag class="w-3 h-3" />
           <a
             th:each="tagName : ${post.tags}"
-            th:href="${tagFinder.getByName(tagName).permalink}"
-            th:title="${tagFinder.getByName(tagName).displayName}"
-            th:text="${tagFinder.getByName(tagName).displayName}"
+            th:with="tag=${tagFinder.getByName(tagName)}"
+            th:href="${tag.permalink}"
+            th:title="${tag.displayName}"
+            th:text="${tag.displayName}"
           >
           </a>
         </div>

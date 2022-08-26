@@ -2,14 +2,10 @@
 import IconMdiTextBoxSearch from "~icons/mdi/text-box-search";
 import PostSearchModal from "./post-search-modal.vue";
 
-let postSearch = false;
-
-function handleOpenModal() {
-  postSearch = true
-}
+const postSearch = false;
 ---
 
-<PostSearchModal client:load v-model:visible={postSearch} />
+<PostSearchModal client:load visible={postSearch} />
 <div class="page-top animated fadeInDown">
   <div
     id="nav"
@@ -24,7 +20,6 @@ function handleOpenModal() {
   </div>
   <div class="information gap-4">
     <div
-      onclick="handleOpenModal"
       class="rounded-full w-[32px] h-[32px] flex justify-center items-center border hover:bg-gray-600 text-gray-500 hover:text-white transition-all cursor-pointer"
     >
       <IconMdiTextBoxSearch class="w-4 h-4" />
@@ -34,3 +29,37 @@ function handleOpenModal() {
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const href = location.href; // http://localhost:8090/
+    const pathname = location.pathname; // /
+    const origin = location.origin; // http://localhost:8090
+    const menuNodes = document.querySelectorAll(".nav .nav-item a");
+
+    const menuNodesArray = Array.from(menuNodes);
+
+    const homeMenu = menuNodesArray.find((node) => {
+      return [href, pathname, origin].includes(node.getAttribute("href") || "");
+    });
+
+    if (homeMenu) {
+      homeMenu.parentElement?.classList.add("current");
+      return;
+    }
+
+    menuNodes.forEach((node) => {
+      const currentHref = node.getAttribute("href");
+
+      if (!currentHref) {
+        return;
+      }
+
+      if ([href, pathname].includes(currentHref)) {
+        console.log(node);
+        node.parentElement?.classList.add("current");
+        return;
+      }
+    });
+  });
+</script>

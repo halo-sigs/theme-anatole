@@ -27,7 +27,7 @@ jobs:
         id: install-pnpm
         with:
           version: 7
-          run_install: true
+          run_install: false
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
@@ -39,6 +39,9 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('./pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        run: |
+          pnpm install
       - name: Build distribution
         run: |
           pnpm prerelease

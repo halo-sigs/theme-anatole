@@ -4,6 +4,8 @@
     "lib": ["dom"],
     "target": "ESNext",
     "module": "ESNext",
+
+    "jsx": "preserve",
     // Enable node-style module resolution, for things like npm package imports.
     "moduleResolution": "node",
     // Enable JSON imports.

@@ -10,7 +10,7 @@
     <meta name="keywords" content="Anatole">
     <meta name="description" content="Anatole">
     <link rel="alternate" type="application/rss+xml" title="atom 1.0" href="/feed">
-  <link rel="stylesheet" href="/assets/index.8ae31221.css" th:href="@{/assets/index.8ae31221.css}"></head>
+  <link rel="stylesheet" href="/assets/index.14450d92.css" th:href="@{/assets/index.14450d92.css}"></head>
 
   <body>
     <div class="sidebar animated fadeInDown">
@@ -95,14 +95,15 @@
   </div>
 </div>
     <div class="main">
-      <div class="page-top animated fadeInDown">
+      <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t)},o=(t,i)=>{if(t===""||!Array.isArray(i))return i;const[e,n]=i;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const i=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const s of n){const r=s.closest(this.tagName);!r||!r.isSameNode(this)||(e[s.getAttribute("data-astro-template")||"default"]=s.innerHTML,s.remove())}for(const s of i){const r=s.closest(this.tagName);!r||!r.isSameNode(this)||(e[s.getAttribute("name")||"default"]=s.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((i,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate),await import(this.getAttribute("before-hydration-url")),this.start()}start(){const i=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:s}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),r=this.getAttribute("component-export")||"default";if(!r.includes("."))this.Component=a[r];else{this.Component=a;for(const d of r.split("."))this.Component=this.Component[d]}return this.hydrator=s,this.hydrate},i,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z1czlXS" component-url="/assets/post-search-modal.8397b758.js" component-export="default" renderer-url="/assets/client.86b95994.js" props="{&quot;v-model:visible&quot;:[0,false]}" ssr="" client="load" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;PostSearchModal&quot;,&quot;value&quot;:true}" await-children="" th:component-url="@{/assets/post-search-modal.8397b758.js}" th:renderer-url="@{/assets/client.86b95994.js}"><!--teleport start--><!--teleport end--></astro-island>
+<div class="page-top animated fadeInDown">
   <div id="nav" class="nav flex overflow-x-auto flex-1 flex-nowrap whitespace-nowrap ml-[30px] mr-4 items-center text-sm gap-6 h-full">
-    <div th:each="menuItem : ${menuFinder.listAllMenuItem()}" class="nav-item inline-flex items-center h-full text-black/70 hover:text-[#4786D6] relative transition-all">
+    <div th:each="menuItem : ${menuFinder.getDefault().menuItems}" class="nav-item inline-flex items-center h-full text-black/70 hover:text-[#4786D6] relative transition-all">
       <a th:href="${menuItem.href}" th:text="${menuItem.displayName}"></a>
     </div>
   </div>
   <div class="information gap-4">
-    <div x-on:click="postSearchVisible = true" class="rounded-full w-[32px] h-[32px] flex justify-center items-center border hover:bg-gray-600 text-gray-500 hover:text-white transition-all cursor-pointer">
+    <div onclick="handleOpenModal" class="rounded-full w-[32px] h-[32px] flex justify-center items-center border hover:bg-gray-600 text-gray-500 hover:text-white transition-all cursor-pointer">
       <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" width="1.2em" height="1.2em" class="w-4 h-4"><path fill="currentColor" d="M15.5 12c2.5 0 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4l3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5M7 15v2h2c.14 1.55.8 2.94 1.81 4H5a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h14a2 2 0 0 1 2 2v8.03A6.492 6.492 0 0 0 15.5 10c-1.27 0-2.46.37-3.46 1H7v2h3c-.36.6-.66 1.28-.83 2H7m10-6V7H7v2h10Z"></path></svg>
     </div>
     <div class="avatar">
@@ -115,7 +116,7 @@
     <div th:each="post : ${postFinder.list(1, 10)}" class="post animated fadeInDown">
   <div class="post-title">
     <h3 class="font-medium">
-      <a th:href="@{post.permalink}" th:text="${post.title}"></a>
+      <a th:href="@{${post.permalink}}" th:text="${post.title}"></a>
     </h3>
   </div>
   <div class="post-content text-black/50 text-sm">
@@ -129,7 +130,7 @@
         <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" width="1.2em" height="1.2em" class="w-3 h-3"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"></path></svg>
         <span>0</span>
         <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" width="1.2em" height="1.2em" class="w-3 h-3"><path fill="currentColor" d="M9 22a1 1 0 0 1-1-1v-3H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6.1l-3.7 3.71c-.2.19-.45.29-.7.29H9m1-6v3.08L13.08 16H20V4H4v12h6Z"></path></svg>
-        <a th:href="@{post.permalink}">0</a>
+        <a th:href="@{${post.permalink}}">0</a>
         <div class="inline-block hover:text-red-700 cursor-pointer">
           <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" width="1.2em" height="1.2em" class="w-3 h-3"><path fill="currentColor" d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z"></path></svg>
           <!-- <i class="iconify w-3 h-3" data-icon="mdi:heart-outline"></i> -->
@@ -137,12 +138,12 @@
         </div>
         <div th:if="${not #lists.isEmpty(post.categories)}" class="inline-block">
           <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" width="1.2em" height="1.2em" class="w-3 h-3"><path fill="currentColor" d="M20 18H4V8h16m0-2h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Z"></path></svg>
-          <a th:each="categoryName : ${post.categories}" th:with="category=${categoryFinder.getByName(categoryName)}" th:href="${category.permalink}" th:title="${category.displayName}" th:text="${category.displayName}">
+          <a th:each="category : ${post.categories}" th:href="@{${category.permalink}}" th:title="${category.displayName}" th:text="${category.displayName}">
           </a>
         </div>
         <div th:if="${not #lists.isEmpty(post.tags)}" class="inline-block">
           <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" width="1.2em" height="1.2em" class="w-3 h-3"><path fill="currentColor" d="M5.5 7A1.5 1.5 0 0 1 4 5.5A1.5 1.5 0 0 1 5.5 4A1.5 1.5 0 0 1 7 5.5A1.5 1.5 0 0 1 5.5 7m15.91 4.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.11 0-2 .89-2 2v7c0 .55.22 1.05.59 1.41l8.99 9c.37.36.87.59 1.42.59c.55 0 1.05-.23 1.41-.59l7-7c.37-.36.59-.86.59-1.41c0-.56-.23-1.06-.59-1.42Z"></path></svg>
-          <a th:each="tagName : ${post.tags}" th:with="tag=${tagFinder.getByName(tagName)}" th:href="${tag.permalink}" th:title="${tag.displayName}" th:text="${tag.displayName}">
+          <a th:each="tag : ${post.tags}" th:href="@{${tag.permalink}}" th:title="${tag.displayName}" th:text="${tag.displayName}">
           </a>
         </div>
       </div>

@@ -1,14 +1,22 @@
 ---
 import IconMdiTextBoxSearch from "~icons/mdi/text-box-search";
+import PostSearchModal from "./post-search-modal.vue";
+
+let postSearch = false;
+
+function handleOpenModal() {
+  postSearch = true
+}
 ---
 
+<PostSearchModal client:load v-model:visible={postSearch} />
 <div class="page-top animated fadeInDown">
   <div
     id="nav"
     class="nav flex overflow-x-auto flex-1 flex-nowrap whitespace-nowrap ml-[30px] mr-4 items-center text-sm gap-6 h-full"
   >
     <div
-      th:each="menuItem : ${menuFinder.listAllMenuItem()}"
+      th:each="menuItem : ${menuFinder.getDefault().menuItems}"
       class="nav-item inline-flex items-center h-full text-black/70 hover:text-[#4786D6] relative transition-all"
     >
       <a th:href="${menuItem.href}" th:text="${menuItem.displayName}"></a>
@@ -16,7 +24,7 @@ import IconMdiTextBoxSearch from "~icons/mdi/text-box-search";
   </div>
   <div class="information gap-4">
     <div
-      x-on:click="postSearchVisible = true"
+      onclick="handleOpenModal"
       class="rounded-full w-[32px] h-[32px] flex justify-center items-center border hover:bg-gray-600 text-gray-500 hover:text-white transition-all cursor-pointer"
     >
       <IconMdiTextBoxSearch class="w-4 h-4" />

@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeading from "../components/page-heading.astro";
+import PostEntry from "../components/post-entry.astro";
+---
+
+<Layout>
+  <th:block th:with="tag=${tagFinder.getByName(name)}">
+    <PageHeading>
+      <th:block slot="title" th:text="'标签：'+${tag.displayName}"> </th:block>
+      <th:block slot="subtitle">2 篇文章</th:block>
+    </PageHeading>
+    <th:block th:with="posts=${postFinder.listByTag(1,10,tag.name)}">
+      <PostEntry />
+    </th:block>
+  </th:block>
+</Layout>

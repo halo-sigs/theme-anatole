@@ -7,10 +7,7 @@ import IconMdiFolderOutline from "~icons/mdi/folder-outline";
 import IconMdiTag from "~icons/mdi/tag";
 ---
 
-<div
-  th:each="post : ${postFinder.list(1, 10).items}"
-  class="post animated fadeInDown"
->
+<div th:each="post : ${posts}" class="post animated fadeInDown">
   <div class="post-title">
     <h3 class="font-medium">
       <a th:href="@{${post.permalink}}" th:text="${post.title}"></a>

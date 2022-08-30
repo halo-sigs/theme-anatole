@@ -4,7 +4,7 @@ import PostEntry from "../components/post-entry.astro";
 ---
 
 <Layout>
-  <div>
+  <th:block th:with="posts=${postFinder.list(1, 10).items}">
     <PostEntry />
-  </div>
+  </th:block>
 </Layout>

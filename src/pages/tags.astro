@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeading from "../components/page-heading.astro";
+import IconMdiTag from "~icons/mdi/tag";
+---
+
+<Layout>
+  <th:block th:with="tags=${tagFinder.listAll()}">
+    <PageHeading>
+      <th:block slot="title" th:text="标签"> </th:block>
+      <th:block slot="subtitle" th:text="${#lists.size(tags)}"> </th:block>
+    </PageHeading>
+    <div class="post-page">
+      <div class="post animated fadeInDown">
+        <div class="flex flex-row flex-wrap gap-2 mb-10">
+          <a
+            th:each="tag : ${tags}"
+            th:text="'#'+${tag.displayName}"
+            class="text-sm text-black/80 hover:text-black hover:underline hover:font-medium"
+          >
+          </a>
+        </div>
+        <div
+          class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
+        >
+          <div th:each="tag : ${tags}" class="transition-all duration-300">
+            <a
+              th:href="${tag.permalink}"
+              class="hover:underline underline-offset-1"
+            >
+              <div
+                class="inline-flex text-base font-medium text-gray-800 items-center"
+              >
+                <IconMdiTag class="w-5 h-5" />
+                <span class="ml-2">
+                  <th:block th:text="${tag.displayName}"></th:block>
+                  <sup class="text-gray-400 ml-1" th:text="${#lists.size(tags)}"
+                  ></sup>
+                </span>
+              </div>
+            </a>
+            <div class="mt-3">
+              <div
+                th:with="posts=${postFinder.listByTag(1,10,tag.name)}"
+                class="flex flex-col pl-5 gap-y-2"
+              >
+                <th:block th:if="${posts.total gt 0}">
+                  <div
+                    th:each="post : ${posts.items}"
+                    class="flex justify-between"
+                  >
+                    <a
+                      th:href="${post.permalink}"
+                      class="text-sm text-black/80 hover:text-black hover:underline hover:font-medium"
+                      th:text="${post.title}"></a>
+                    <span
+                      class="text-sm text-gray-300"
+                      th:text="${post.publishTime}"></span>
+                  </div>
+                  <div class="flex justify-end mt-2">
+                    <a
+                      th:href="${tag.permalink}"
+                      class="text-sm text-black/60 hover:text-black hover:underline hover:font-medium inline-flex items-center"
+                    >
+                      <i
+                        class="iconify mr-2"
+                        data-icon="mdi:unfold-more-vertical"></i>
+                      更多
+                    </a>
+                  </div>
+                </th:block>
+                <div th:if="${posts.total eq 0}" class="text-sm text-gray-300">
+                  此标签没有文章
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </th:block>
+</Layout>

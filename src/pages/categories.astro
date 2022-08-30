@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeading from "../components/page-heading.astro";
+---
+
+<Layout>
+  <th:block th:with="categoryes=${categoryFinder.listAll()}">
+    <PageHeading>
+      <th:block slot="title" th:text="分类目录"> </th:block>
+      <th:block slot="subtitle" th:text="${#lists.size(categories)}">
+      </th:block>
+    </PageHeading>
+  </th:block>
+</Layout>

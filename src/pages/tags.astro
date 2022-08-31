@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PageHeading from "../components/page-heading.astro";
 import IconMdiTag from "~icons/mdi/tag";
+import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
 ---
 
 <Layout>
@@ -62,9 +63,7 @@ import IconMdiTag from "~icons/mdi/tag";
                       th:href="${tag.permalink}"
                       class="text-sm text-black/60 hover:text-black hover:underline hover:font-medium inline-flex items-center"
                     >
-                      <i
-                        class="iconify mr-2"
-                        data-icon="mdi:unfold-more-vertical"></i>
+                      <IconMdiUnfoldMoreVertical class="mr-2" />
                       更多
                     </a>
                   </div>

@@ -31,5 +31,7 @@ module.exports = {
   globals: {
     th: true,
     block: true,
+    halo: true,
+    footer: true,
   },
 };

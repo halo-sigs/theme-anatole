@@ -50,7 +50,8 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
                   </a>
                   <span
                     class="text-sm text-gray-300"
-                    th:text="${post.publishTime}"></span>
+                    th:text="${#dates.format(post.publishTime,'yyyy-MM-dd HH:mm')}"
+                  ></span>
                 </div>
               </th:block>
 

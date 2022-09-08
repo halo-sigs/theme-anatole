@@ -26,7 +26,8 @@ import IconMdiTag from "~icons/mdi/tag";
         <div class="meta">
           <div class="info">
             <IconMdiCalendarMonthOutline class="w-3 h-3" />
-            <span th:text="${post.publishTime}"></span>
+            <span th:text="${#dates.format(post.publishTime,'yyyy-MM-dd')}"
+            ></span>
             <IconMdiEye class="w-3 h-3" />
             <span>0</span>
             <IconMdiCommentOutline class="w-3 h-3" />

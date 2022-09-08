@@ -39,6 +39,7 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
+    "@halo-dev/comment-widget": "^0.0.0",
     "dayjs": "^1.11.5"
   }
 }

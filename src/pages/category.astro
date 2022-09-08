@@ -5,35 +5,33 @@ import PostEntry from "../components/post-entry.astro";
 ---
 
 <Layout>
-  <th:block th:with="category=${categoryFinder.getByName(name)}">
-    <PageHeading>
-      <th:block slot="title" th:text="'分类：'+${category.displayName}">
-      </th:block>
-      <th:block slot="subtitle">2 篇文章</th:block>
-    </PageHeading>
-    <th:block th:with="postItems=${posts.items}">
-      <PostEntry />
-      <div
-        th:if="${posts.hasPrevious() || posts.hasNext()}"
-        class="pagination flex justify-between items-center"
-      >
-        <a
-          th:if="${posts.hasPrevious()}"
-          class="btn w-20"
-          role="navigation"
-          th:href="${posts.prevUrl}"
-          title="上一页">上一页</a
-        >
-        <span class="text-sm" th:text="${posts.page} +'/'+ ${posts.total}"
-        ></span>
-        <a
-          th:if="${posts.hasNext()}"
-          class="btn w-20"
-          role="navigation"
-          th:href="${posts.nextUrl}"
-          title="下一页">下一页</a
-        >
-      </div>
+  <PageHeading>
+    <th:block slot="title" th:text="'分类：'+${category.displayName}">
     </th:block>
+    <th:block slot="subtitle" th:text="${category.getPostCount()}+'篇文章'">
+    </th:block>
+  </PageHeading>
+  <th:block th:with="postItems=${posts.items}">
+    <PostEntry />
+    <div
+      th:if="${posts.hasPrevious() || posts.hasNext()}"
+      class="pagination flex justify-between items-center"
+    >
+      <a
+        th:if="${posts.hasPrevious()}"
+        class="btn w-20"
+        role="navigation"
+        th:href="${posts.prevUrl}"
+        title="上一页">上一页</a
+      >
+      <span class="text-sm" th:text="${posts.page} +'/'+ ${posts.total}"></span>
+      <a
+        th:if="${posts.hasNext()}"
+        class="btn w-20"
+        role="navigation"
+        th:href="${posts.nextUrl}"
+        title="下一页">下一页</a
+      >
+    </div>
   </th:block>
 </Layout>

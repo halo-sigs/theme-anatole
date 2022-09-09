@@ -34,7 +34,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
               <IconMdiTag class="w-5 h-5" />
               <span class="ml-2">
                 <th:block th:text="${tag.spec.displayName}"></th:block>
-                <sup class="text-gray-400 ml-1" th:text="${#lists.size(tags)}"
+                <sup class="text-gray-400 ml-1" th:text="${tag.postCount}"
                 ></sup>
               </span>
             </div>
@@ -58,7 +58,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
                     th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd HH:mm')}"
                   ></span>
                 </div>
-                <div class="flex justify-end mt-2">
+                <div th:if="${posts.total gt 10}" class="flex justify-end mt-2">
                   <a
                     th:href="${tag.status.permalink}"
                     class="text-sm text-black/60 hover:text-black hover:underline hover:font-medium inline-flex items-center"

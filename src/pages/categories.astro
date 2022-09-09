@@ -26,9 +26,8 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
               <IconMdiFolderOutline class="w-5 h-5" />
               <span class="ml-2">
                 <th:block th:text="${category.spec.displayName}"></th:block>
-                <sup
-                  class="text-gray-400 ml-1"
-                  th:text="${#lists.size(categories)}"></sup>
+                <sup class="text-gray-400 ml-1" th:text="${category.postCount}"
+                ></sup>
               </span>
             </div>
           </a>
@@ -55,7 +54,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
                 </div>
               </th:block>
 
-              <div class="flex justify-end mt-2">
+              <div th:if="${posts.total gt 10}" class="flex justify-end mt-2">
                 <a
                   th:href="${category.status.permalink}"
                   class="text-sm text-black/60 hover:text-black hover:underline hover:font-medium inline-flex items-center"

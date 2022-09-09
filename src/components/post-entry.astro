@@ -10,21 +10,22 @@ import IconMdiTag from "~icons/mdi/tag";
 <div th:each="post : ${postItems}" class="post animated fadeInDown">
   <div class="post-title">
     <h3 class="font-medium">
-      <a th:href="@{${post.permalink}}" th:text="${post.title}"></a>
+      <a th:href="${post.status.permalink}" th:text="${post.spec.title}"></a>
     </h3>
   </div>
   <div class="post-content text-black/50 text-sm">
-    <p class="py-2.5" th:text="${post.excerpt}"></p>
+    <p class="py-2.5" th:text="${post.status.excerpt}"></p>
   </div>
   <div class="post-info pb-[30px] border-b border-b-[#f2f2f2]">
     <div class="meta">
       <div class="info">
         <IconMdiCalendarMonthOutline class="w-3 h-3" />
-        <span th:text="${#dates.format(post.publishTime,'yyyy-MM-dd')}"></span>
+        <span th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"
+        ></span>
         <IconMdiEye class="w-3 h-3" />
         <span>0</span>
         <IconMdiCommentOutline class="w-3 h-3" />
-        <a th:href="@{${post.permalink}}">0</a>
+        <a th:href="${post.status.permalink}">0</a>
         <div class="inline-block hover:text-red-700 cursor-pointer">
           <IconMdiHeart class="w-3 h-3" />
           <!-- <i class="iconify w-3 h-3" data-icon="mdi:heart-outline"></i> -->
@@ -37,9 +38,9 @@ import IconMdiTag from "~icons/mdi/tag";
           <IconMdiFolderOutline class="w-3 h-3" />
           <a
             th:each="category : ${post.categories}"
-            th:href="@{${category.permalink}}"
-            th:title="${category.displayName}"
-            th:text="${category.displayName}"
+            th:href="${category.status.permalink}"
+            th:title="${category.spec.displayName}"
+            th:text="${category.spec.displayName}"
           >
           </a>
         </th:block>
@@ -47,9 +48,9 @@ import IconMdiTag from "~icons/mdi/tag";
           <IconMdiTag class="w-3 h-3" />
           <a
             th:each="tag : ${post.tags}"
-            th:href="@{${tag.permalink}}"
-            th:title="${tag.displayName}"
-            th:text="${tag.displayName}"
+            th:href="${tag.status.permalink}"
+            th:title="${tag.spec.displayName}"
+            th:text="${tag.spec.displayName}"
           >
           </a>
         </th:block>

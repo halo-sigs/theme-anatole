@@ -6,10 +6,9 @@ import PostEntry from "../components/post-entry.astro";
 
 <Layout>
   <PageHeading>
-    <th:block slot="title" th:text="'分类：'+${category.displayName}">
+    <th:block slot="title" th:text="'分类：'+${category.spec.displayName}">
     </th:block>
-    <th:block slot="subtitle" th:text="${category.getPostCount()}+'篇文章'">
-    </th:block>
+    <th:block slot="subtitle">2 篇文章</th:block>
   </PageHeading>
   <th:block th:with="postItems=${posts.items}">
     <PostEntry />

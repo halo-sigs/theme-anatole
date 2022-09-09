@@ -15,7 +15,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
       <div class="flex flex-row flex-wrap gap-2 mb-10">
         <a
           th:each="tag : ${tags}"
-          th:text="'#'+${tag.displayName}"
+          th:text="'#'+${tag.spec.displayName}"
           class="text-sm text-black/80 hover:text-black hover:underline hover:font-medium"
         >
         </a>
@@ -25,7 +25,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
       >
         <div th:each="tag : ${tags}" class="transition-all duration-300">
           <a
-            th:href="${tag.permalink}"
+            th:href="${tag.status.permalink}"
             class="hover:underline underline-offset-1"
           >
             <div
@@ -33,7 +33,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
             >
               <IconMdiTag class="w-5 h-5" />
               <span class="ml-2">
-                <th:block th:text="${tag.displayName}"></th:block>
+                <th:block th:text="${tag.spec.displayName}"></th:block>
                 <sup class="text-gray-400 ml-1" th:text="${#lists.size(tags)}"
                 ></sup>
               </span>
@@ -41,7 +41,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
           </a>
           <div class="mt-3">
             <div
-              th:with="posts=${postFinder.listByTag(1,10,tag.name)}"
+              th:with="posts=${postFinder.listByTag(1,10,tag.metadata.name)}"
               class="flex flex-col pl-5 gap-y-2"
             >
               <th:block th:if="${posts.total gt 0}">
@@ -50,17 +50,17 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
                   class="flex justify-between"
                 >
                   <a
-                    th:href="${post.permalink}"
+                    th:href="${post.status.permalink}"
                     class="text-sm text-black/80 hover:text-black hover:underline hover:font-medium"
-                    th:text="${post.title}"></a>
+                    th:text="${post.spec.title}"></a>
                   <span
                     class="text-sm text-gray-300"
-                    th:text="${#dates.format(post.publishTime,'yyyy-MM-dd HH:mm')}"
+                    th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd HH:mm')}"
                   ></span>
                 </div>
                 <div class="flex justify-end mt-2">
                   <a
-                    th:href="${tag.permalink}"
+                    th:href="${tag.status.permalink}"
                     class="text-sm text-black/60 hover:text-black hover:underline hover:font-medium inline-flex items-center"
                   >
                     <IconMdiUnfoldMoreVertical class="mr-2" />

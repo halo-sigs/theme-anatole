@@ -10,7 +10,7 @@ import PageTop from "../components/page-top.astro";
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anatole</title>
+    <title th:text="${site.title}"></title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
@@ -25,6 +25,8 @@ import PageTop from "../components/page-top.astro";
       href="/feed"
     />
     <slot name="head" />
+    <!-- <th:block th:include="module/styles :: styles" /> -->
+    <!-- eslint-disable-next-line -->
   </head>
 
   <body>

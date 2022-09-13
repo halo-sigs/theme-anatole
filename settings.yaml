@@ -22,8 +22,8 @@ spec:
         name: icon
         label: 左上角图标
       - $formkit: radio
-        name: avatar_circle
-        label: 圆形头像
+        name: avatar_logo
+        label: 圆形 Logo
         options:
           - label: 开启
             value: true

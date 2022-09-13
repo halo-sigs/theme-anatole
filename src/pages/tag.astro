@@ -8,8 +8,7 @@ import PostEntry from "../components/post-entry.astro";
   <PageHeading>
     <th:block slot="title" th:text="'标签：'+${tag.spec.displayName}">
     </th:block>
-    <th:block slot="subtitle" th:text="${tag.postCount}+' 篇文章'"
-    ></th:block>
+    <th:block slot="subtitle" th:text="${tag.postCount}+' 篇文章'"></th:block>
   </PageHeading>
   <th:block th:with="postItems=${posts.items}">
     <PostEntry />

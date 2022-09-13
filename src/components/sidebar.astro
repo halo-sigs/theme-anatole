@@ -8,14 +8,14 @@ import SocialList from "./social-list.astro";
       <img
         alt="Logo"
         class="inline-block"
-        src="https://ryanc.cc/avatar"
+        th:src="${site.logo}"
         style="width:127px;border-radius:50%"
       />
       <h3 class="!mt-3 !mb-0">
-        <a href="/" title="Anatole">Anatole</a>
+        <a href="/" th:title="${site.title}" th:text="${site.title}"></a>
       </h3>
       <div class="description mt-2">
-        <p class="description-text">CVM Developer</p>
+        <p class="description-text" th:text="${site.subtitle}"></p>
       </div>
     </div>
   </div>

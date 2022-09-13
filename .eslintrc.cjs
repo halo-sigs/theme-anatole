@@ -33,5 +33,6 @@ module.exports = {
     block: true,
     halo: true,
     footer: true,
+    include: true,
   },
 };

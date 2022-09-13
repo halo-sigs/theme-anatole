@@ -12,62 +12,98 @@ import IconMdiGithub from "~icons/mdi/github";
 ---
 
 <ul class="social-links mt-1">
-  <li>
+  <li th:if="${theme.config.social?.rss}">
     <a target="_blank" href="#" title="RSS">
       <IconMdiRss class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="https://twitter.com/" title="Twitter">
+  <li th:if="${theme.config.social?.twitter}">
+    <a
+      target="_blank"
+      th:href="@{https://twitter.com/{id}(id=${theme.config.social?.twitter})}"
+      title="Twitter"
+    >
       <IconMdiTwitter class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="https://www.facebook.com/" title="Facebook">
+  <li th:if="${theme.config.social?.facebook}">
+    <a
+      target="_blank"
+      th:href="@{https://www.facebook.com/{id}(id=${theme.config.social?.facebook})}"
+      title="Facebook"
+    >
       <IconMdiFacebook class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="https://www.instagram.com/" title="Instagram">
+  <li th:if="${theme.config.social?.instagram}">
+    <a
+      target="_blank"
+      th:href="@{https://www.instagram.com/{id}(id=${theme.config.social?.instagram})}"
+      title="Instagram"
+    >
       <IconMdiInstagram class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="https://dribbble.com/" title="Dribbble">
+  <li th:if="${theme.config.social?.dribbble}">
+    <a
+      target="_blank"
+      th:href="@{https://dribbble.com/{id}(id=${theme.config.social?.dribbble})}"
+      title="Dribbble"
+    >
       <IconMdiDribbble class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="https://weibo.com/" title="Sina Weibo">
+  <li th:if="${theme.config.social?.weibo}">
+    <a
+      target="_blank"
+      th:href="@{https://weibo.com/{id}(id=${theme.config.social?.weibo})}"
+      title="Sina Weibo"
+    >
       <IconMdiSinaWeibo class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="#" title="QQ">
+  <li th:if="${theme.config.social?.qq}">
+    <a
+      target="_blank"
+      th:href="@{tencent://message/?uin={uin}&Site=&Menu=yes(uin=${theme.config.social?.qq})}"
+      title="QQ"
+    >
       <IconMdiQQChat class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="https://t.me/" title="Telegram">
+  <li th:if="${theme.config.social?.telegram}">
+    <a
+      target="_blank"
+      th:href="@{https://t.me/{id}(id=${theme.config.social?.telegram})}"
+      title="Telegram"
+    >
       <IconMdiTelegram class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="mailto:#" title="Email">
+  <li th:if="${theme.config.social?.email}">
+    <a
+      target="_blank"
+      th:href="@{mailto:{email}(email=${theme.config.social?.email})}"
+      title="Email"
+    >
       <IconMdiEmail class="w-4 h-4" />
     </a>
   </li>
 
-  <li>
-    <a target="_blank" href="https://github.com/" title="GitHub">
+  <li th:if="${theme.config.social?.github}">
+    <a
+      target="_blank"
+      th:href="@{https://github.com/{id}(id=${theme.config.social?.github})}"
+      title="GitHub"
+    >
       <IconMdiGithub class="w-4 h-4" />
     </a>
   </li>

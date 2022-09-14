@@ -14,6 +14,7 @@ import IconMdiTag from "~icons/mdi/tag";
     <th:block th:include="components/highlightjs/index :: import"></th:block>
     <th:block th:include="components/katex/index :: import"></th:block>
     <th:block th:include="components/lightgallery/index :: import"></th:block>
+    <th:block th:include="components/comment/index :: import"></th:block>
   </th:block>
   <th:block slot="footer">
     <th:block th:include="components/highlightjs/index :: script"></th:block>
@@ -80,6 +81,8 @@ import IconMdiTag from "~icons/mdi/tag";
       </div>
     </div>
     <div class="pagination flex justify-between items-center"></div>
-    <div id="comment_widget" style="margin: 30px;"></div>
+    <div id="comment_widget" style="margin: 30px;">
+      <th:block th:include="components/comment/index :: script"></th:block>
+    </div>
   </div>
 </Layout>

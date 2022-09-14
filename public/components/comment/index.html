@@ -1,0 +1,15 @@
+<th:block th:fragment="import">
+  <script th:src="@{/assets/libs/comment/comment-widget.iife.js}"></script>
+</th:block>
+
+<th:block th:fragment="script">
+  <script>
+    CommentWidget.init(
+      "#comment_widget",
+      "/themes/theme-anatole/assets/libs/comment/style.css",
+      {
+        postId: 0,
+      }
+    );
+  </script>
+</th:block>

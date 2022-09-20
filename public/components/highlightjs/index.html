@@ -9,15 +9,16 @@
 <th:block th:fragment="script">
   <script>
     (async function () {
-      const extraLanguages = "${settings.highlight_extra_languages!''}"
+      const extraLanguages = "[[${theme.config.basic.highlight_extra_languages}]]"
         .split(",")
         .filter((x) => x);
 
       for (let i = 0; i < extraLanguages.length; i++) {
         const lang = extraLanguages[i];
         if (lang) {
+          // TODO ${#theme.assets(/assets/libs/highlight.js/languages/)}
           await loadScript(
-            "${theme_base!}/assets/libs/highlight.js/languages/" +
+            "/themes/theme-anatole/assets/libs/highlight.js/languages/" +
               lang +
               ".min.js"
           );

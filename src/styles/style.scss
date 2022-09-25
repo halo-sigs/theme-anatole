@@ -60,7 +60,6 @@ svg {
   height: auto;
   float: right;
   margin-top: 60px;
-  width: 60%;
 }
 
 .page-top {
@@ -72,7 +71,6 @@ svg {
   background-color: #fff;
   height: 60px;
   border-bottom: 1px solid #f2f2f2;
-  width: 60%;
 
   .nav {
     .nav-item {
@@ -108,7 +106,6 @@ svg {
   position: fixed;
   z-index: 4;
   border-right: 1px solid #f2f2f2;
-  width: 40%;
 
   .logo-title {
     text-align: center;
@@ -388,9 +385,12 @@ a.btn {
 }
 
 .markdown-body {
-  ul,
+  ul {
+    list-style: disc;
+  }
+
   ol {
-    list-style: inherit;
+    list-style: decimal;
   }
 
   h1,

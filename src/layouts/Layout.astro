@@ -24,9 +24,8 @@ import PageTop from "../components/page-top.astro";
       title="atom 1.0"
       href="/feed"
     />
+    <meta th:replace="module/styles :: styles" />
     <slot name="head" />
-    <!-- <th:block th:include="module/styles :: styles" /> -->
-    <!-- eslint-disable-next-line -->
   </head>
 
   <body>

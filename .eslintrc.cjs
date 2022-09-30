@@ -34,5 +34,6 @@ module.exports = {
     halo: true,
     footer: true,
     include: true,
+    comment: true,
   },
 };

@@ -30,5 +30,13 @@ import IconMdiCommentOutline from "~icons/mdi/comment-outline";
       >
       </div>
     </div>
+    <div id="comment_widget" style="margin: 30px;">
+      <halo:comment
+        group="content.halo.run"
+        kind="singlePage"
+        th:attr="name=${singlePage.metadata.name}"
+      >
+      </halo:comment>
+    </div>
   </div>
 </Layout>

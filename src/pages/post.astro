@@ -82,7 +82,12 @@ import IconMdiTag from "~icons/mdi/tag";
     </div>
     <div class="pagination flex justify-between items-center"></div>
     <div id="comment_widget" style="margin: 30px;">
-      <th:block th:include="components/comment/index :: script"></th:block>
+      <halo:comment
+        group="content.halo.run"
+        kind="Post"
+        th:attr="name=${post.metadata.name}"
+      >
+      </halo:comment>
     </div>
   </div>
 </Layout>

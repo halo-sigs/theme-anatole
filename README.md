@@ -14,18 +14,10 @@ pnpm install
 
 ```bash
 pnpm build
+
+# 构建完成之后将项目压缩为 zip 文件即可在 Halo 后台上传使用。但需要注意的是，压缩的时候需要排除掉 `node_modules` 目录。
 ```
 
-## 构建发行版本
+## 使用
 
-```bash
-pnpm prerelease
-```
-
-构建完成之后，可以得到 `dist/theme-anatole-{version}.zip` 文件，最终在 Halo 2.0 后台上传即可。
-
-TIPS：
-
-- 此主题必须经过构建才能使用，不能直接下载或者 Clone 源码使用。
-- 目前设置了 GitHub Action 的 Push 构建，你可以在 <https://github.com/halo-sigs/theme-anatole/actions> 的每个构建详情中下载最新构建的 ZIP 文件。
-- 也可以在 <https://github.com/halo-sigs/theme-anatole/releases> 页面下载最新的发行版。
+进入 <https://github.com/halo-sigs/theme-anatole/releases> 页面下载最新的发行版，在 Halo 后台的主题管理上传即可。

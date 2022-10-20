@@ -9,39 +9,44 @@ import PageHeading from "../components/page-heading.astro";
   </PageHeading>
   <div class="post-page">
     <div class="post animated fadeInDown">
-      <div
-        class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-      >
-        <a th:each="link : ${links}" th:href="${link.spec.url}" target="_blank">
-          <div
-            class="relative rounded border border-gray-300 bg-white px-5 py-4 shadow-sm hover:shadow flex items-center space-x-3 hover:border-gray-400"
+      <div class="flex flex-col gap-4">
+        <th:block th:each="group : ${groups}">
+          <h2
+            class="mt-2 text-lg font-medium"
+            th:text="${group.spec.displayName}"
           >
-            <div
-              th:unless="${#strings.isEmpty(link.spec.logo)}"
-              class="flex-shrink-0"
-            >
-              <img
-                class="h-12 w-12 rounded-full"
-                th:src="${link.spec.logo}"
-                th:alt="${link.spec.displayName}"
-              />
-            </div>
-            <div class="flex-1 min-w-0">
-              <div>
-                <p
-                  th:text="${link.spec.displayName}"
-                  class="text-sm font-medium text-gray-900 truncate"
-                >
-                </p>
-                <p
-                  th:text="${link.spec.description}"
-                  class="text-sm text-gray-500 truncate"
-                >
-                </p>
+          </h2>
+          <div
+            class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          >
+            <a th:each="link : ${group.links}" href="#" target="_blank">
+              <div
+                class="relative flex items-center space-x-3 rounded border border-gray-300 bg-white px-5 py-4 shadow-sm hover:border-gray-400 hover:shadow"
+              >
+                <div class="flex-shrink-0">
+                  <img
+                    class="h-12 w-12 rounded-full"
+                    th:src="${link.spec.logo}"
+                  />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div>
+                    <p
+                      class="truncate text-sm font-medium text-gray-900"
+                      th:text="${link.spec.displayName}"
+                    >
+                    </p>
+                    <p
+                      class="truncate text-sm text-gray-500"
+                      th:text="${link.spec.description}"
+                    >
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
-        </a>
+        </th:block>
       </div>
     </div>
   </div>

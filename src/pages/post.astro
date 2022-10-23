@@ -11,13 +11,7 @@ import IconMdiTag from "~icons/mdi/tag";
 
 <Layout>
   <th:block slot="head">
-    <th:block th:include="components/highlightjs/index :: import"></th:block>
     <th:block th:include="components/katex/index :: import"></th:block>
-    <th:block th:include="components/lightgallery/index :: import"></th:block>
-  </th:block>
-  <th:block slot="footer">
-    <th:block th:include="components/highlightjs/index :: script"></th:block>
-    <th:block th:include="components/lightgallery/index :: script"></th:block>
   </th:block>
   <PageHeading>
     <th:block slot="title" th:text="${post.spec.title}"> </th:block>

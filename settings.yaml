@@ -31,15 +31,6 @@ spec:
             - label: 关闭
               value: false
           value: false
-        - $formkit: radio
-          name: katex
-          label: KaTex 公式渲染
-          options:
-            - label: 开启
-              value: true
-            - label: 关闭
-              value: false
-          value: false
     - group: social
       label: 社交资料
       formSchema:

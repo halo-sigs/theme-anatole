@@ -17,7 +17,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
       >
         <div th:each="category : ${categories}">
           <a
-            th:href="${category.status.permalink}"
+            th:href="@{${category.status.permalink}}"
             class="hover:underline underline-offset-1"
           >
             <div
@@ -42,7 +42,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
                   class="flex justify-between"
                 >
                   <a
-                    th:href="${post.status.permalink}"
+                    th:href="@{${post.status.permalink}}"
                     class="text-sm text-black/80 hover:text-black hover:underline hover:font-medium"
                     th:text="${post.spec.title}"
                   >
@@ -56,7 +56,7 @@ import IconMdiUnfoldMoreVertical from "~icons/mdi/unfold-more-vertical";
 
               <div th:if="${posts.total gt 10}" class="flex justify-end mt-2">
                 <a
-                  th:href="${category.status.permalink}"
+                  th:href="@{${category.status.permalink}}"
                   class="text-sm text-black/60 hover:text-black hover:underline hover:font-medium inline-flex items-center"
                 >
                   <IconMdiUnfoldMoreVertical class="mr-2" />

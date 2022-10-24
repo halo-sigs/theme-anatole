@@ -10,7 +10,7 @@ import IconMdiTag from "~icons/mdi/tag";
 <div th:each="post : ${postItems}" class="post animated fadeInDown">
   <div class="post-title">
     <h3 class="font-medium">
-      <a th:href="${post.status.permalink}" th:text="${post.spec.title}"></a>
+      <a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}"></a>
     </h3>
   </div>
   <div class="post-content text-black/50 text-sm">
@@ -26,7 +26,7 @@ import IconMdiTag from "~icons/mdi/tag";
         <IconMdiEye class="w-3 h-3" />
         <span th:text="${post.stats.visit}">0</span>
         <IconMdiCommentOutline class="w-3 h-3" />
-        <a th:href="${post.status.permalink}" th:text="${post.stats.comment}"
+        <a th:href="@{${post.status.permalink}}" th:text="${post.stats.comment}"
           >0</a
         >
         <div class="inline-block hover:text-red-700 cursor-pointer">
@@ -41,7 +41,7 @@ import IconMdiTag from "~icons/mdi/tag";
           <IconMdiFolderOutline class="w-3 h-3" />
           <a
             th:each="category : ${post.categories}"
-            th:href="${category.status.permalink}"
+            th:href="@{${category.status.permalink}}"
             th:title="${category.spec.displayName}"
             th:text="${category.spec.displayName}"
           >
@@ -51,7 +51,7 @@ import IconMdiTag from "~icons/mdi/tag";
           <IconMdiTag class="w-3 h-3" />
           <a
             th:each="tag : ${post.tags}"
-            th:href="${tag.status.permalink}"
+            th:href="@{${tag.status.permalink}}"
             th:title="${tag.spec.displayName}"
             th:text="${tag.spec.displayName}"
           >

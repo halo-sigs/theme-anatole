@@ -12,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
             <div th:each="post : ${month.posts}" class="listing-item">
               <div class="listing-post">
                 <a
-                  th:href="${post.status.permalink}"
+                  th:href="@{${post.status.permalink}}"
                   th:title="${post.spec.title}"
                   th:text="${post.spec.title}"></a>
                 <div class="post-time">
@@ -36,7 +36,7 @@ import Layout from "../layouts/Layout.astro";
       th:if="${archives.hasPrevious()}"
       class="btn w-20"
       role="navigation"
-      th:href="${archives.prevUrl}"
+      th:href="@{${archives.prevUrl}}"
       title="上一页">上一页</a
     >
     <span class="text-sm" th:text="${archives.page} +'/'+ ${archives.total}"
@@ -45,7 +45,7 @@ import Layout from "../layouts/Layout.astro";
       th:if="${archives.hasNext()}"
       class="btn w-20"
       role="navigation"
-      th:href="${archives.nextUrl}"
+      th:href="@{${archives.nextUrl}}"
       title="下一页">下一页</a
     >
   </div>

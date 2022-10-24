@@ -16,7 +16,7 @@ const postSearch = false;
       class="nav-item inline-flex items-center h-full text-black/70 hover:text-[#4786D6] relative transition-all"
     >
       <a
-        th:href="${menuItem.status.href}"
+        th:href="@{${menuItem.status.href}}"
         th:text="${menuItem.status.displayName}"></a>
     </div>
   </div>

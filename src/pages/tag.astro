@@ -20,7 +20,7 @@ import PostEntry from "../components/post-entry.astro";
         th:if="${posts.hasPrevious()}"
         class="btn w-20"
         role="navigation"
-        th:href="${posts.prevUrl}"
+        th:href="@{${posts.prevUrl}}"
         title="上一页">上一页</a
       >
       <span class="text-sm" th:text="${posts.page} +'/'+ ${posts.total}"></span>
@@ -28,7 +28,7 @@ import PostEntry from "../components/post-entry.astro";
         th:if="${posts.hasNext()}"
         class="btn w-20"
         role="navigation"
-        th:href="${posts.nextUrl}"
+        th:href="@{${posts.nextUrl}}"
         title="下一页">下一页</a
       >
     </div>

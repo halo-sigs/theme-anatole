@@ -78,7 +78,29 @@ import IconMdiTag from "~icons/mdi/tag";
       >
       </div>
     </div>
-    <div class="pagination flex justify-between items-center"></div>
+    <div
+      th:with="postCursor = ${postFinder.cursor(post.metadata.name)}"
+      class="pagination flex justify-between items-center"
+    >
+      <a
+        class="btn"
+        th:if="${postCursor.hasPrevious()}"
+        role="navigation"
+        th:href="@{${postCursor.previous.status.permalink}}"
+        th:title="${postCursor.previous.spec.title}"
+      >
+        上一篇
+      </a>
+      <a
+        class="btn"
+        th:if="${postCursor.hasNext()}"
+        role="navigation"
+        th:href="@{${postCursor.next.status.permalink}}"
+        th:title="${postCursor.next.spec.title}"
+      >
+        下一篇
+      </a>
+    </div>
     <div id="comment_widget" style="margin: 30px;">
       <halo:comment
         group="content.halo.run"

@@ -24,7 +24,8 @@ import PostEntry from "../components/post-entry.astro";
         th:href="@{${posts.prevUrl}}"
         title="上一页">上一页</a
       >
-      <span class="text-sm" th:text="${posts.page} +'/'+ ${posts.total}"></span>
+      <span class="text-sm" th:text="${posts.page} +'/'+ ${posts.totalPages}"
+      ></span>
       <a
         th:if="${posts.hasNext()}"
         class="btn w-20"

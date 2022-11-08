@@ -39,8 +39,9 @@ import Layout from "../layouts/Layout.astro";
       th:href="@{${archives.prevUrl}}"
       title="上一页">上一页</a
     >
-    <span class="text-sm" th:text="${archives.page} +'/'+ ${archives.total}"
-    ></span>
+    <span
+      class="text-sm"
+      th:text="${archives.page} +'/'+ ${archives.totalPages}"></span>
     <a
       th:if="${archives.hasNext()}"
       class="btn w-20"

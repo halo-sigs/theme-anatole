@@ -1,11 +1,7 @@
 ---
 import IconMdiTextBoxSearch from "~icons/mdi/text-box-search";
-import PostSearchModal from "./post-search-modal.vue";
-
-const postSearch = false;
 ---
 
-<PostSearchModal client:load visible={postSearch} />
 <div class="page-top animated fadeInDown">
   <div
     id="nav"
@@ -22,7 +18,9 @@ const postSearch = false;
   </div>
   <div class="information gap-4">
     <div
+      th:if="${pluginFinder.available('PluginSearchWidget')}"
       class="rounded-full w-[32px] h-[32px] flex justify-center items-center border hover:bg-gray-600 text-gray-500 hover:text-white transition-all cursor-pointer"
+      onclick="SearchWidget.open()"
     >
       <IconMdiTextBoxSearch class="w-4 h-4" />
     </div>

@@ -12,7 +12,7 @@ const postSearch = false;
     class="nav flex overflow-x-auto flex-1 flex-nowrap whitespace-nowrap ml-[30px] mr-4 items-center text-sm gap-6 h-full"
   >
     <div
-      th:each="menuItem : ${menuFinder.getDefault().menuItems}"
+      th:each="menuItem : ${menuFinder.getPrimary().menuItems}"
       class="nav-item inline-flex items-center h-full text-black/70 hover:text-[#4786D6] relative transition-all"
     >
       <a

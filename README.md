@@ -1,6 +1,10 @@
 # theme-anatole
 
-Halo 2.0 版本的 Anatole 主题。基于 1.x 的 <https://github.com/halo-dev/halo-theme-anatole> 移植。（WIP）
+Halo 2.0 版本的 Anatole 主题。基于 1.x 的 <https://github.com/halo-dev/halo-theme-anatole> 移植。
+
+> **Warning**
+> 
+> 此仓库已废弃，后续关于 Halo 2.0 的版本请关注：https://github.com/halo-dev/halo-theme-anatole
 
 ## 开发环境设置
 
